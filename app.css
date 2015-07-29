@@ -1,0 +1,24 @@
+#main {     
+    margin: auto;
+    padding: 10px;
+}
+
+#selectPhoto { 
+    position: absolute;
+    padding: 10px;
+    margin: 0 150px 0 300px;
+}
+
+table { 
+    position: absolute; 
+    padding: 10px; 
+    margin: 0 10px 0 50px;
+}
+
+tr{ 
+   background-color: bisque; 
+}
+
+tr:hover{ 
+    background-color: antiquewhite;
+}
