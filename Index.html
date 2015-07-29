@@ -1,24 +1,42 @@
 <html>
   <head>
-    <title>Blackjack</title>
-    <link href="styles/app.css" rel="stylesheet" type="text/css" media="screen">
+    <title>Photo Viewer</title>
+    <link href="app.css" rel="stylesheet" type="text/css" media="screen">
   </head>
-  <body>
-    <script src="lib/jquery.js"></script>
-    <script src="lib/underscore.js"></script>
-    <script src="lib/backbone.js"></script>
+    <body>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone-min.js"></script>
 
-    <script src="Views/AppView.js"></script>
-    <script src="Views/ListView.js"></script>
-    <script src="Views/ListEntryView.js"></script>
-    <script src="Views/SelectedView.js"></script>
-    <script src="Views/SelectedPhotoView.js"></script>
-    <script src="Views/SelectedDescView.js"></script>
+    <script src="./data.js"></script>
 
-    <script src="compiled/src/views/CardView.js"></script>
-    <script src="compiled/src/views/HandView.js"></script>
-    <script src="compiled/src/views/AppView.js"></script>
+    <script src="./Views/AppView.js"></script>
+    <script src="./Views/LibraryView.js"></script>
+    <script src="./Views/LibraryEntryView.js"></script>
+   
+    <script src="./Views/SelectedView.js"></script>
+     <!--
+    <script src="./Views/SelectedPhotoView.js"></script>
+    <script src="./Views/SelectedDescView.js"></script>
+    -->
+    <script src="Models/AppModel.js"></script>
+    <script src="Models/LibraryEntry.js"></script>
+    <script src="Collection/Library.js"></script>
 
-    <script src="compiled/src/main.js"></script>
+    <script> 
+      $(function(){ 
+        var library = new Library(demoPhotos);
+        var app = new AppModel({library: library})
+
+        var appView = new AppView({model: app});
+        $('#main').append(appView.render())
+      })
+    
+    </script>
+    <div id="main"> </div>
+
+
+
+
   </body>
 </html>

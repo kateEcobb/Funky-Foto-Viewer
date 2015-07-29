@@ -1,0 +1,16 @@
+{
+  "name": "Backbone Practice",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "underscore": "~1.6.0",
+    "backbone": "~1.2.0"
+  },
+  "resolutions": {
+    "underscore": ">=1.7.0"
+  }
+}

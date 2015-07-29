@@ -1,18 +1,22 @@
 var AppView = Backbone.View.extend({ 
-  id: '#main',
-
   initialize: function(){ 
-    this.listView = new ListView({collection: this.model.get('photos')});
-    this.selectedView = new SelectedView(); //want to populate this with a default;
-
+    this.libraryView = new LibraryView({collection: this.model.get('library')});
+    this.selectedView = new SelectedView({model: this.model.get('library').at(0)}); //want to populate this with a default;
     this.render();
+
+    this.model.on('change:currentPhoto', function(model){ 
+      this.selectedView.setPhoto(model.get('currentPhoto'))
+    }, this);
+
   }, 
 
 
   render: function(){ 
-    this.$el.append([
-      this.listView.$el, 
+    return this.$el.append([
+      this.libraryView.$el, 
       this.selectedView.$el
     ])
+
+  }
 
 });
